@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Web Page Assignment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌐 Interactive Web Page</h1>
+    <button id="theme-toggle">🌙 Dark Mode</button>
+  </header>
+
+  <!-- Part 1: Event Handling Example -->
+  <section>
+    <h2>🎮 Counter Game</h2>
+    <button id="increment-btn">Click Me!</button>
+    <p>Score: <span id="counter">0</span></p>
+  </section>
+
+  <!-- Part 2: Interactive Elements -->
+  <section>
+    <h2>❓ FAQ Section</h2>
+    <div class="faq-item">
+      <h3 class="faq-question">What is JavaScript?</h3>
+      <p class="faq-answer">JavaScript is a programming language used to make web pages interactive.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-question">What is DOM?</h3>
+      <p class="faq-answer">DOM stands for Document Object Model. It represents the structure of a web page.</p>
+    </div>
+  </section>
+
+  <!-- Dropdown Menu -->
+  <section>
+    <h2>📂 Dropdown Menu</h2>
+    <div class="dropdown">
+      <button id="dropdown-btn">Select Option ▼</button>
+      <ul id="dropdown-menu" class="dropdown-content">
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+      </ul>
+    </div>
+    <p>Selected: <span id="selected-option">None</span></p>
+  </section>
+
+  <!-- Tabbed Interface -->
+  <section>
+    <h2>🗂️ Tabbed Interface</h2>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+      <button class="tab-btn" data-tab="tab2">Tab 2</button>
+      <button class="tab-btn" data-tab="tab3">Tab 3</button>
+    </div>
+    <div class="tab-content">
+      <p id="tab1" class="tab-pane active">Content for Tab 1</p>
+      <p id="tab2" class="tab-pane">Content for Tab 2</p>
+      <p id="tab3" class="tab-pane">Content for Tab 3</p>
+    </div>
+  </section>
+
+  <!-- Part 3: Form Validation -->
+  <section>
+    <h2>📋 Sign Up Form</h2>
+    <form id="signup-form">
+      <label>
+        Name: <input type="text" id="name" />
+        <small class="error" id="name-error"></small>
+      </label>
+      <br />
+
+      <label>
+        Email: <input type="text" id="email" />
+        <small class="error" id="email-error"></small>
+      </label>
+      <br />
+
+      <label>
+        Password: <input type="password" id="password" />
+        <small class="error" id="password-error"></small>
+      </label>
+      <br />
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <p id="form-success" class="success"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
