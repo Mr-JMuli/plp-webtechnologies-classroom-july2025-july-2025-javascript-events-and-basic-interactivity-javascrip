@@ -1,34 +1,60 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 20px;
-  background: #f9f9f9;
+  background: #f4f6f9;
   color: #333;
   transition: all 0.3s ease;
+  line-height: 1.6;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
+/* Dark Mode */
 .dark-mode {
-  background: #121212;
+  background: #181818;
+  color: #f1f1f1;
+}
+
+.dark-mode header {
+  background: #242424;
   color: #f1f1f1;
 }
 
 button {
-  padding: 8px 15px;
+  padding: 10px 18px;
   margin: 5px;
   cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5; /* Indigo accent */
+  color: #fff;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
 }
 
 /* FAQ Section */
 .faq-answer {
   display: none;
-  margin-left: 20px;
-  color: #555;
+  margin: 10px 0 15px 20px;
+  padding: 10px;
+  background: #f9fafb;
+  border-left: 4px solid #4f46e5;
+  border-radius: 8px;
+  color: #444;
 }
 
 /* Dropdown Menu */
@@ -36,56 +62,74 @@ button {
   position: relative;
   display: inline-block;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
-  background: white;
-  border: 1px solid #ccc;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
   list-style: none;
   padding: 0;
-  margin: 0;
-  width: 150px;
+  margin: 8px 0 0 0;
+  width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   z-index: 1;
 }
+
 .dropdown-content li {
-  padding: 10px;
+  padding: 12px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
+
 .dropdown-content li:hover {
-  background: #f0f0f0;
+  background: #f3f4f6;
 }
 
 /* Tabs */
 .tabs {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
+
 .tab-btn {
-  padding: 8px 12px;
+  padding: 10px 16px;
   margin-right: 5px;
   cursor: pointer;
-  border: 1px solid #ccc;
-  background: #eee;
+  border: 1px solid #d1d5db;
+  border-radius: 8px 8px 0 0;
+  background: #e5e7eb;
+  transition: all 0.3s ease;
 }
+
 .tab-btn.active {
-  background: #ddd;
-  font-weight: bold;
+  background: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  font-weight: 600;
+  color: #4f46e5;
 }
+
 .tab-pane {
   display: none;
+  padding: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 0 8px 8px 8px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
 .tab-pane.active {
   display: block;
-  padding: 10px;
-  border: 1px solid #ccc;
 }
 
 /* Form Validation */
 .error {
-  color: red;
-  font-size: 0.8em;
+  color: #dc2626;
+  font-size: 0.85em;
+  margin-top: 5px;
 }
 
 .success {
-  color: green;
-  font-weight: bold;
+  color: #16a34a;
+  font-weight: 600;
 }
