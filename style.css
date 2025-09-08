@@ -1,63 +1,118 @@
 /* General Styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 20px;
-  background: #f4f6f9;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(-45deg, #4f46e5, #9333ea, #06b6d4, #10b981);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   transition: all 0.3s ease;
   line-height: 1.6;
+  padding-top: 70px; /* space for fixed button */
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+/* Animated gradient */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating/Breathing effect */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+header, .tab-pane {
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Dark Mode */
 .dark-mode {
-  background: #181818;
+  background: #121212;
   color: #f1f1f1;
 }
 
-.dark-mode header {
-  background: #242424;
-  color: #f1f1f1;
+.dark-mode header, 
+.dark-mode .tab-pane {
+  background: rgba(30, 30, 30, 0.7);
 }
 
-button {
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+  position: fixed;
+  top: 15px;
+  right: 20px;
   padding: 10px 18px;
-  margin: 5px;
   cursor: pointer;
   border: none;
-  border-radius: 8px;
-  background: #4f46e5; /* Indigo accent */
+  border-radius: 30px;
+  background: rgba(255,255,255,0.85);
+  color: #111;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#darkModeToggle:hover {
+  background: rgba(255,255,255,1);
+  transform: scale(1.05);
+}
+
+.dark-mode #darkModeToggle {
+  background: rgba(0,0,0,0.8);
   color: #fff;
-  font-weight: 500;
-  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Other Buttons */
+button {
+  padding: 12px 20px;
+  margin: 8px;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
 }
 
 button:hover {
-  background: #4338ca;
-  transform: translateY(-2px);
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.05);
 }
 
 /* FAQ Section */
 .faq-answer {
   display: none;
-  margin: 10px 0 15px 20px;
-  padding: 10px;
-  background: #f9fafb;
-  border-left: 4px solid #4f46e5;
-  border-radius: 8px;
-  color: #444;
+  margin: 15px auto;
+  max-width: 600px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  color: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* Dropdown Menu */
+/* Dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -66,25 +121,31 @@ button:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  background: #ffffff;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
   list-style: none;
   padding: 0;
-  margin: 8px 0 0 0;
+  margin-top: 10px;
   width: 180px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  z-index: 1;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease forwards;
 }
 
 .dropdown-content li {
   padding: 12px;
   cursor: pointer;
   transition: background 0.3s ease;
+  color: #333;
 }
 
 .dropdown-content li:hover {
-  background: #f3f4f6;
+  background: #e5e7eb;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Tabs */
@@ -96,40 +157,45 @@ button:hover {
   padding: 10px 16px;
   margin-right: 5px;
   cursor: pointer;
-  border: 1px solid #d1d5db;
+  border: none;
   border-radius: 8px 8px 0 0;
-  background: #e5e7eb;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .tab-btn.active {
-  background: #ffffff;
-  border-bottom: 1px solid #ffffff;
-  font-weight: 600;
-  color: #4f46e5;
+  background: rgba(255,255,255,0.35);
+  color: #fff;
+  font-weight: 700;
 }
 
 .tab-pane {
   display: none;
-  padding: 15px;
-  border: 1px solid #d1d5db;
-  border-radius: 0 8px 8px 8px;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 20px;
+  border-radius: 0 12px 12px 12px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  margin: auto;
+  max-width: 600px;
+  text-align: left;
 }
 
 .tab-pane.active {
   display: block;
+  animation: fadeIn 0.4s ease forwards;
 }
 
 /* Form Validation */
 .error {
-  color: #dc2626;
-  font-size: 0.85em;
+  color: #ff6b6b;
+  font-size: 0.9em;
   margin-top: 5px;
 }
 
 .success {
-  color: #16a34a;
+  color: #4ade80;
   font-weight: 600;
 }
